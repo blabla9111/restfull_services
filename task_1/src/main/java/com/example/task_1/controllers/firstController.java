@@ -9,7 +9,7 @@ public class firstController {
     TextParserDefault myText = new TextParserDefault();
     @GetMapping
     public String get(){
-        return myText.getInnerText();
+        return myText.getFinalText();
     }
 
     @PostMapping
