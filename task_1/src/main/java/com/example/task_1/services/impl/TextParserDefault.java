@@ -11,23 +11,21 @@ public class TextParserDefault implements TextParser {
     public String makeText(String text) {
         RusAlphabetDictionary rusAlphabetDictionary = new RusAlphabetDictionary();
         char[] textToChar = text.toCharArray();
-        text = "<p>";
-        String parseText = "<p>";
+        text = "";
+        String parseText = "";
         for (char c : textToChar) {
             int num = rusAlphabetDictionary.getCharNum(c);
-            text += c + "&nbsp";
+            text += c + " ";
             if (num == 0) {
                 parseText += c;
             } else {
                 parseText += num;
                 if (num >= 10) {
-                    text += "&nbsp&nbsp";
+                    text += "  ";
                 }
             }
-            parseText += "&nbsp";
+            parseText += " ";
         }
-        text += "</p>";
-        parseText += "</p>";
         setInnerText(text);
         setOutText(parseText);
         return text;

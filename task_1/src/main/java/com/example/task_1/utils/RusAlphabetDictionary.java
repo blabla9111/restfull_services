@@ -9,7 +9,6 @@ public class RusAlphabetDictionary {
         char[] alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя".toCharArray();
         for (int i = 0; i < 33; i++) {
             dictionary.put(alphabet[i], i + 1);
-            System.out.println(alphabet[i] + " " + dictionary.get(alphabet[i]));
         }
     }
 
