@@ -7,15 +7,15 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/task_1")
 public class firstController {
     TextParserDefault myText = new TextParserDefault();
+
     @GetMapping
-    public String get(){
+    public String get() {
         return myText.getFinalText();
     }
 
     @PostMapping
-    public String post(@RequestBody String text){
-        System.out.println(text);
-        return myText.makeText(text);
+    public void post(@RequestBody String text) {
+        myText.makeText(text);
     }
 
 }

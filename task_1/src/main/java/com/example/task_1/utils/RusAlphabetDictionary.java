@@ -4,21 +4,19 @@ import java.util.HashMap;
 
 public class RusAlphabetDictionary {
     private HashMap<Character, Integer> dictionary = new HashMap<>();
-    public RusAlphabetDictionary (){
+
+    public RusAlphabetDictionary() {
         char[] alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя".toCharArray();
-        for (int i = 0; i<33;i++){
-            dictionary.put(alphabet[i],i+1);
-            System.out.println(alphabet[i]+" "+dictionary.get(alphabet[i]));
+        for (int i = 0; i < 33; i++) {
+            dictionary.put(alphabet[i], i + 1);
+            System.out.println(alphabet[i] + " " + dictionary.get(alphabet[i]));
         }
     }
 
-    public Integer getCharNum(Character c){
-        if (dictionary.containsKey(c)){
+    public Integer getCharNum(Character c) {
+        if (dictionary.containsKey(c)) {
             return dictionary.get(c);
         }
         return 0;
     }
-
-
-
 }
