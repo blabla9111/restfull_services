@@ -2,7 +2,7 @@ package com.example.task_1.utils;
 
 import java.util.HashMap;
 
-public class RusAlphabetDictionary {
+public class RusAlphabetDictionary{
     private HashMap<Character, Integer> dictionary = new HashMap<>();
 
     public RusAlphabetDictionary() {
