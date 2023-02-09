@@ -4,9 +4,6 @@ import com.example.task_1.services.TextParser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
-
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/task_1")
