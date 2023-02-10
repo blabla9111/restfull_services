@@ -2,15 +2,15 @@ package com.example.task_2.services;
 
 import com.example.task_2.domain.Payment;
 import com.example.task_2.domain.Result;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.example.task_2.requestsClasses.PaymentRequest;
+import com.example.task_2.requestsClasses.SupplyDateRequest;
 
 import java.util.List;
 
 public interface PaymentService {
-    Payment addPayment(JSONObject json) throws JSONException;
+    Payment addPayment(PaymentRequest paymentRequest);
 
-    Result getBalanceByDate(JSONObject json) throws JSONException;
+    Result getBalanceByDate(SupplyDateRequest supplyDateRequest);
 
     List<Payment> getAllPayments();
 }

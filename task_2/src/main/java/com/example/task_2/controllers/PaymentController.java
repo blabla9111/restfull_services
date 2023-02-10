@@ -1,13 +1,13 @@
 package com.example.task_2.controllers;
 
+import com.example.task_2.requestsClasses.PaymentRequest;
+import com.example.task_2.requestsClasses.SupplyDateRequest;
 import com.example.task_2.services.PaymentService;
 import lombok.RequiredArgsConstructor;
 import org.json.JSONException;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.json.JSONObject;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -23,15 +23,16 @@ public class PaymentController {
                 HttpStatus.valueOf(200));
     }
 
-    @PostMapping(value = "/addpayment", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> post(HttpEntity<String> httpEntity) throws JSONException {
-        return new ResponseEntity<>(paymentService.addPayment(new JSONObject(httpEntity.getBody())),
+    @PostMapping(value = "/addpayment",produces = APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> post(@RequestBody PaymentRequest paymentRequest) throws JSONException {
+        System.out.println(paymentRequest);
+        return new ResponseEntity<>(paymentService.addPayment(paymentRequest),
                 HttpStatus.valueOf(200));
     }
 
-    @PostMapping(value = "/balancebydate", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> postDate(HttpEntity<String> httpEntity) throws JSONException {
-        return new ResponseEntity<>(paymentService.getBalanceByDate(new JSONObject(httpEntity.getBody())),
+    @PostMapping(value = "/balancebydate", produces = APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> postDate(@RequestBody SupplyDateRequest supplyDateRequest) throws JSONException {
+        return new ResponseEntity<>(paymentService.getBalanceByDate(supplyDateRequest),
                 HttpStatus.valueOf(200));
     }
 
