@@ -2,11 +2,13 @@ package com.example.task_2.requestsClasses;
 
 import com.example.task_2.checking.CheckingRequest;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
 import lombok.Getter;
 
 import java.time.LocalDate;
 
 @Getter
+@Builder
 public class SupplyDateRequest implements CheckingRequest {
     @JsonProperty("supply_date")
     private LocalDate supplyDate;

@@ -2,15 +2,15 @@ package com.example.task_2.domain;
 
 import com.example.task_2.requestsClasses.PaymentRequest;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @Entity
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 public class Payment {
     @Id
@@ -31,5 +31,16 @@ public class Payment {
         this.setValue(paymentRequest.getValue()); // Или так?
     }
 
+
+    // это сравнение только для тестирования, не опасно ли так переопределять?
+    @Override
+    public boolean equals(Object obj){
+        Payment payment = (Payment) obj;
+        if (this.name.equals(payment.getName()) && this.part==payment.getPart()
+                && this.supplyDate.equals(payment.getSupplyDate()) && this.getValue() == payment.getValue()){
+            return true;
+        }
+        return false;
+    }
 
 }

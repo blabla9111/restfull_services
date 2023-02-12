@@ -2,11 +2,13 @@ package com.example.task_2.requestsClasses;
 
 import com.example.task_2.checking.CheckingRequest;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
 import lombok.Getter;
 
 import java.time.LocalDate;
 
 @Getter
+@Builder
 public class PaymentRequest implements CheckingRequest {
     private String name;
 
@@ -22,7 +24,6 @@ public class PaymentRequest implements CheckingRequest {
         if(this.getName()==null || this.getName()==""){
             throw new IllegalArgumentException("Name should be not NULL!");
         }
-        System.out.println(LocalDate.now().plusDays(1));
         if(this.getSupplyDate()==null || this.getSupplyDate().isAfter(LocalDate.now())){
             throw new IllegalArgumentException("Incorrect SupplyDate (=null or future Date)!");
         }
