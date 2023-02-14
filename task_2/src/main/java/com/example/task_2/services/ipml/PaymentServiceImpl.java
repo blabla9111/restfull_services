@@ -32,7 +32,6 @@ public class PaymentServiceImpl implements PaymentService {
         LocalDate date = supplyDateRequest.getSupplyDate();
         LinkedList<Payment> payments = paymentRepo.findAllBySupplyDateIsLessThanEqual(date);
         Long balance = 0l;
-        System.out.println(payments.size());
         for (Payment payment : payments) {
             System.out.println(payment.getValue());
             if (payment.getPart() == 'k') {
