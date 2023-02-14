@@ -2,9 +2,9 @@ package com.example.task_2.services.ipml;
 
 import com.example.task_2.domain.Payment;
 import com.example.task_2.domain.Result;
+import com.example.task_2.domain.requestsClasses.PaymentRequest;
+import com.example.task_2.domain.requestsClasses.SupplyDateRequest;
 import com.example.task_2.repos.PaymentRepo;
-import com.example.task_2.requestsClasses.PaymentRequest;
-import com.example.task_2.requestsClasses.SupplyDateRequest;
 import com.example.task_2.services.PaymentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -31,9 +31,8 @@ public class PaymentServiceImpl implements PaymentService {
         supplyDateRequest.checkRequest();
         LocalDate date = supplyDateRequest.getSupplyDate();
         LinkedList<Payment> payments = paymentRepo.findAllBySupplyDateIsLessThanEqual(date);
-        Long balance = 0l;
+        Long balance = 0L;
         for (Payment payment : payments) {
-            System.out.println(payment.getValue());
             if (payment.getPart() == 'k') {
                 balance += payment.getValue();
             } else {

@@ -1,21 +1,26 @@
-package com.example.task_2.requestsClasses;
+package com.example.task_2.domain.requestsClasses;
 
-import com.example.task_2.checking.CheckingRequest;
+import com.example.task_2.domain.requestsClasses.interfaces.CheckingRequest;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Builder;
 import lombok.Getter;
 
 import java.time.LocalDate;
 
 @Getter
-@Builder
 public class SupplyDateRequest implements CheckingRequest {
     @JsonProperty("supply_date")
     private LocalDate supplyDate;
 
+    SupplyDateRequest() {
+    }
+
+    SupplyDateRequest(LocalDate date) {
+        this.supplyDate = date;
+    }
+
     @Override
     public void checkRequest() {
-        if (this.getSupplyDate()==null){
+        if (this.getSupplyDate() == null) {
             throw new IllegalArgumentException("Supply's Date can't be null!");
         }
     }

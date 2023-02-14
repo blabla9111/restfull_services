@@ -1,9 +1,10 @@
-package com.example.task_2.requestsClasses;
+package com.example.task_2.domain.requestsClasses;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.mockito.Mock;
 
 import java.time.LocalDate;
 
@@ -13,6 +14,8 @@ class PaymentRequestTest {
     char DEFAULT_PART = 'k';
     LocalDate DEFAULT_DATE = LocalDate.now();
     Long DEFAULT_VALUE = 5000L;
+    @Mock
+    PaymentRequest paymentRequest;
 
     PaymentRequest makePaymentRequest(String name, char part, LocalDate date, Long value) {
         return PaymentRequest
@@ -26,8 +29,8 @@ class PaymentRequestTest {
 
     @Test
     void checkRequestSuccessful() {
-        // Как проверить, что не выброшено ни одно исключение?
-        Assertions.assertAll(()->makePaymentRequest(DEFAULT_NAME, DEFAULT_PART, DEFAULT_DATE, DEFAULT_VALUE));
+        PaymentRequest req = makePaymentRequest(DEFAULT_NAME, DEFAULT_PART, DEFAULT_DATE, DEFAULT_VALUE);
+        Assertions.assertAll(() -> req.checkRequest());
     }
 
     @Test

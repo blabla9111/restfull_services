@@ -2,8 +2,8 @@ package com.example.task_2.services;
 
 import com.example.task_2.domain.Payment;
 import com.example.task_2.domain.Result;
-import com.example.task_2.requestsClasses.PaymentRequest;
-import com.example.task_2.requestsClasses.SupplyDateRequest;
+import com.example.task_2.domain.requestsClasses.PaymentRequest;
+import com.example.task_2.domain.requestsClasses.SupplyDateRequest;
 
 import java.util.List;
 
