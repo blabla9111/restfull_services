@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  postgres:
+    container_name: 'db_payments'
+    environment:
+      - 'POSTGRES_USER =root'
+      - 'POSTGRES_PASSWORD=123'
+      - 'POSTGRES_DB = payments'
+    image: 'postgres'
+
+  app:
+    build: ./
+    container_name: 'task_2_app'
+    ports:
+      - '8080:8080'
+    links:
+      - 'postgres:localhost'
